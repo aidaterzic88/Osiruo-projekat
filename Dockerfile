@@ -1,4 +1,12 @@
-FROM nginx:alpine
-RUN rm -rf /usr/share/nginx/html/*
-COPY . /usr/share/nginx/html
-EXPOSE 80
+
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8085
+
+CMD ["python", "app.py"]
