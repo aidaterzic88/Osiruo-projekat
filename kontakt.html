@@ -1,27 +1,134 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kontakt</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="kontakt.css">
+     <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-    }
-    a {
-      display: inline-block;
-      margin-top: 30px;
-      color: blue;
-      text-decoration: underline;
-    }
-  </style>
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url("pozadina.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+#kontakt {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#kontakt h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color:white;
+    border-bottom: 2px solid #c1a57b;
+    padding-bottom: 5px;
+}
+
+#kontakt p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+input, textarea {
+    padding: 12px;
+    border: 1px solid #c1a57b;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: white;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #a57c52;
+    outline: none;
+}
+
+button {
+    background-color: #8c5e3c;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a56f4c;
+}
+
+.social-links {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.social-links a {
+    color:white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #a56f4c;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #a56f4c;
+}
+     </style>
 </head>
 <body>
-  <h1>Kontakt informacije</h1>
-  <p>Email: fotograf@primer.com</p>
-  <p>Telefon: +381 64 123 4567</p>
-
-  <a href="index.html">← Nazad na početnu</a>
+        
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <p>Kontaktirajte nas putem emaila ili popunite formu ispod za dodatne informacije.</p>
+        <form>
+            <input type="text" placeholder="Vaše ime" required>
+            <input type="email" placeholder="Vaš email" required>
+            <textarea placeholder="Vaša poruka" rows="5" required></textarea>
+            <button type="submit">Pošalji</button>
+        </form>
+    
+        <p>Email: <a href="mailto:info@tvojfotograf.com">info@tvojfotograf.com</a></p>
+    
+        <p>Pratite nas i na društvenim mrežama:</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/tvojfotograf" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/tvojfotograf" target="_blank">Facebook</a>
+            <a href="https://twitter.com/tvojfotograf" target="_blank">Twitter</a>
+        </div>
+        <div>
+            <ul>
+                <p>Za više informacija o našim uslugama, pogledajte naš <a href="cjenovnik.html" target="_blank">Cjenovnik</a></p> 
+            </ul>
+        </div>
+    </section>
+    
 </body>
 </html>
