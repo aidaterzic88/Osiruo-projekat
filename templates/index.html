@@ -3,490 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotografija i Obrada</title>
-    <link rel="stylesheet" href="stil.css">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    width:100%;
-    margin: 0;
-    padding: 0;
-    background-color:#333;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    
-}
+    <title>Dobrodošli - Tvoj Fotograf</title>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <!-- Font Awesome za ikone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden; 
-}
-header {
-    width: 100vw; 
-    height: 300px; 
-    background-image: url('tvoja-slika.jpg');
-    background-size: cover; 
-    background-position: center; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    <!-- AOS (Animate On Scroll) stil -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 
-.header-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-}
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0fff4;
+            color: #333;
+        }
 
-.header-image {
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity:0.8 ;
-}
+        header {
+            background: url('header-slika.jpg') no-repeat center center;
+            background-attachment: fixed;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
 
-header h1 {
-    color: white;
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    text-align: center;
-    z-index: 1;
-}
+        header h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        }
 
-nav {
-    width: 100vw;
-    background-color: #333;
-    color: white;
-    height: 50px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
+        nav {
+            background-color: #2e7d32;
+            color: white;
+            padding: 15px 0;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
 
-nav ul li {
-    margin: 0 15px; 
-}
+        nav ul li {
+            margin: 0 20px;
+        }
 
-nav ul li a {
-    text-decoration: none;
-    color: white;
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-nav ul li a:hover {
-    color: #ffa500;
-}
+        nav ul li a:hover {
+            color: #a8e6cf;
+        }
 
-#hero {
-    background-color:rgb(165, 221, 255);
-    position: relative;
-    width: 100%;
-    height:400px;
-    background-image: url("/static/pozadina1.jpg");
-    background-size: cover;  
-    background-position: center;  
-    opacity:0.8 ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color:#000000;
-    padding: 0 20px;
-}
-.hero-content {
-    max-width: 800px;
-    background-color: rgba(255, 255, 255, 0.7); 
-    padding: 40px;
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    max-width: 800px;
-}
+        #hero {
+            background-color: #e0f2f1;
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-#hero h1 {
-    color:rgb(33, 30, 30);
-    font-size: 3rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
+        #hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
 
-#hero p {
-    color:rgb(33, 30, 30);
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    line-height: 1.5;
-}
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
 
-.cta-button {
-    background-color: #333;
-    color:whitesmoke;
-    text-decoration: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
+        .cta-button {
+            background-color: #66bb6a;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-.cta-button:hover {
- 
-    color: white;
-}
+        .cta-button:hover {
+            background-color: #81c784;
+            transform: scale(1.05);
+        }
 
-#onama {
-    
-    background-color: white; 
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 900px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px -4px 8px rgba(0, 0, 0, 0.1);
-    border: 3px solid #333;
-}
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+        }
 
-#onama h2 {
-    font-size: 2rem; 
-    text-align: center;
-    color: #333;
-    margin-top: 0; 
-    padding-top: 10px;
-}
+        section h2 {
+            text-align: center;
+            color: #388e3c;
+            margin-bottom: 20px;
+        }
 
-#onama p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-    text-align: justify;
-}
-#projekti {
-    background-color: #ffffff; 
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 90%;
-    border-radius: 8px; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px -4px 8px rgba(0, 0, 0, 0.1);
-    border: 3px solid #333; 
-}
-#projekti h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: #333; 
-}
-#projekti p {
-    text-align: center; 
-    font-size: 1.2rem; 
-    color: #555;        
-    margin-top: 20px;  
-}
+        section p {
+            text-align: justify;
+            font-size: 1rem;
+        }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-    justify-content: center; 
-}
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
 
-.project {
-    width: 30%; 
-    text-align: center;
-    border: 3px solid #333;
-    padding: 10px;
-    border-radius: 8px; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px -4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
+        .project {
+          
+            flex: 1 1 calc(30% - 40px);
+            background-color: #f9fdf9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #c8e6c9;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
 
-.project img {
-    width: 100%; 
-    height: auto; 
-    border-radius: 5px; 
-    margin-bottom: 10px; 
-    box-shadow: 0 4px 8px rgba(5, 5, 1, 0.2); 
-    transition: transform 0.3s, box-shadow 0.3s; 
-}
-.project:hover {
-    transform: translateY(-10px); 
-    background-color: #c4cace; 
-}
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(100, 200, 150, 0.2);
+        }
 
-.project h3 {
-    margin-top: 10px;
-    font-size: 1.5rem;
-    color: #333;
-}
+        .project h3 {
+            
+            color: white;
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
 
-.project p {
-    font-size: 1rem;
-    color: #666;
-    margin-top: 10px;
+        .project p {
+             
+            font-size: 1rem;
+            color: white;
+        }
 
-}
+        .project i {
+        
+            font-size: 2.5rem;
+            color: #81c784;
+            margin-bottom: 10px;
+        }
 
-#kontakt {
-    background-color: rgba(255, 255, 255, 0.8); 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2), 0px -4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    border-radius: 8px;
-    border: 3px solid #333;
-    background-color: #fff;
-    margin: 20px auto;
-    max-width: 800px;
-    border-radius: 8px;
-
-}
-
-#kontakt h2 {
-    font-size: 2rem;
-    text-align: center;
-    color: #333;
-}
-
-#kontakt p {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center; 
-    gap: 20px;  
-    margin: 0; 
-    padding: 0; 
-    border: none; 
-    box-shadow: none; 
-}
-
-.social-links a {
-    font-size: 1.2rem;
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 0; 
-    padding: 0; 
-    border: none; 
-    box-shadow: none; 
-}
-
-.social-links a:hover {
-    color: #555;
-    text-decoration: underline;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form input, form textarea, form button {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #333;
-}
-
-form button {
-    background-color:#333;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-}
-
-form button:hover {
-    background-color: #555;
-}
-body {
-    
-    background-color: #ffffff; 
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-}
-
-.section {
-    background: rgba(255, 255, 255, 0.8); 
-    padding: 40px;
-    margin: 30px auto;
-    max-width: 900px;
-    border-radius: 15px; 
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
-    text-align: center; 
-}
-
-.section h2 {
-    font-size: 2rem;
-    color: #ea7900; 
-    margin-bottom: 20px;
-    text-transform: uppercase; 
-    letter-spacing: 1.2px; 
-}
-
-.section p {
-    font-size: 1rem;
-    color:#ffa500; 
-    line-height: 1.8;
-}
-
-a {
-    text-decoration: none;
-    color: inherit; 
-    
-    }
-
-
-a:visited {
-    text-decoration: none;
-    color: inherit;
-}
-
-a:hover {
-    text-decoration: underline; 
-    color: #681919; 
-}
-
-#naslov-teksta {
-    margin-bottom: 20px; 
-    text-align: center; 
-}
-
-.project {
-    margin-top: 20px;
-}
-
-body {
-    background: none; 
-}
-#cjenovnik {
-    display: flex;
-    justify-content: center;
-    margin: 20px auto; 
-}
-
-#cjenovnik .cta-button {
-    background-color: #333; 
-    color: whitesmoke; 
-    text-decoration: none; 
-    padding: 15px 30px; 
-    font-size: 1.2rem; 
-    border-radius: 5px; 
-    border: 1px solid #333; 
-    transition: background-color 0.3s ease; 
-    text-align: center; 
-}
-
-#cjenovnik .cta-button:hover {
-    background-color: #555; /* Boja prilikom hovera /
-    color: white; / Boja teksta prilikom hovera */
-}
-</style>
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #777;
+            background-color: #e8f5e9;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-    <header>
-    <div class="header-container">
-    <img src="{{ url_for('static', filename='pozadina.jpg') }}" class="header-image" />
+    <header data-aos="fade-in" data-aos-duration="1500">
+        <h1>DOBRODOŠLI</h1>
+    </header>
 
-
-    <h1>DOBRODOŠLI</h1>
-    
-    </div>
-</header>
-<nav>
+    <nav>
         <ul>
             <li><a href="#onama">O nama</a></li>
             <li><a href="#projekti">Projekti</a></li>
-            <li>Kontakt</li>
+            <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
     </nav>
 
-
-
-
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Uhvati Najlepše Trenutke</h1>
-            <p>Stvarajmo nezaboravne uspomene kroz fotografiju. Da li ste spremni da uhvatite svoj trenutak?</p>
-            <a href="kontakt.html" class="cta-button">Kontaktirajte Nas</a>
-
-        </div>
+    <section id="hero" data-aos="zoom-in-up">
+        <h1>Uhvati Najljepše Trenutke</h1>
+        <p>Stvarajmo nezaboravne uspomene kroz fotografiju. Da li ste spremni da uhvatite svoj trenutak?</p>
+        <a href="kontakt.html" class="cta-button">Kontaktiraj nas</a>
     </section>
 
-    <section id="onama">
+    <section id="onama" data-aos="fade-right">
         <h2>O nama</h2>
-     
-    
-        <p>Mi smo tim fotografa koji se bavi snimanjem posebnih trenutaka. Uzimamo u obzir svaki detalj kako bismo stvorili slike koje ćete željeti da sačuvate zauvijek. Bez obzira da li je reč o vjenčanjima, portretima, prirodi ili događajima, svaki trenutak nam je važan i želimo da ga uhvatimo na pravi način.
-            Svaka slika treba da govori nešto o vama i vašim uspomenama, i mi se trudimo da to prenesemo kroz svaki kadar.
-            Za nas je fotografija način da podelimo lijepe trenutke sa Vama i napravimo uspomene koje će trajati.
-            </p>
-     
+        <p>Mi smo tim posvećen stvaranju profesionalnih fotografija koje pričaju vašu priču. Bilo da se radi o portretima, prirodi ili posebnim događajima, pristupamo svakom trenutku s pažnjom i strašću. Naš cilj je da vaši najljepši trenuci ostanu zauvijek zabilježeni.</p>
     </section>
-    
-    <section id="projekti">
-        <h2>Projekti</h2>
-        <div id="naslov-teksta">
-            <p>Pogledajte neke od naših najboljih radova u oblasti portreta, pejzaža i događaja.</p>
-        </div>
+
+    <section id="projekti" data-aos="fade-up">
+        <h2>Naši Projekti</h2>
         <div class="gallery">
-            <div class="project">
-                
-                <a href="portreti.html">
-                  <img src="{{ url_for('static', filename='portret.jpg') }}" class="header-image" />
-
-
-                    <h3>Portret</h3>
-                    <p>U ovom dijelu smo se fokusirali na stvaranje portreta koji zrače emocijama i karakterom osobe koju fotografišemo.</p>
+            <div class="project" style="background-image: url('portret.jpg');">
+             
+                    <i class="fas fa-user"></i>
+                    <h3>Portreti</h3>
+                    <p>Izražajne fotografije koje oslikavaju emocije i karakter osobe.</p>
                 </a>
             </div>
-            <div class="project">
-                <a href="priroda.html">
-                  <img src="{{ url_for('static', filename='priroda.jpg') }}" class="header-image" />
-
-
+            <div class="project" style="background-image: url('priroda.jpg');">
+               
+                    <i class="fas fa-tree"></i>
                     <h3>Priroda</h3>
-                    <p>Istražujemo ljepotu prirodnih pejzaža i promjene u prirodi kroz različite godišnje doba.</p>
+                    <p>Istraživanje ljepote prirodnih pejzaža u svim godišnjim dobima.</p>
                 </a>
             </div>
-            <div class="project">
-                <a href="dogadjaji.html">
-                 <img src="{{ url_for('static', filename='dogadjaj.jpg') }}" class="header-image" />
-
-
+            <div class="project" style="background-image: url('dogadjaj.jpg');">
+              
+                    <i class="fas fa-camera-retro"></i>
                     <h3>Događaji</h3>
-                    <p>Dokumentujemo specijalne događaje poput vjenčanja i slavlja, uhvativši emotivne trenutke.</p>
+                    <p>Uhvati posebne trenutke poput vjenčanja, proslava i drugih događaja.</p>
                 </a>
             </div>
         </div>
     </section>
- <script>
-  console.log("Skripta radi!");
 
-  // Ovo mijenja prikazani URL u traci browsera
-  window.history.replaceState({}, '', '/dobrodosli-na-projekat-osiruo');
-</script>
+    <footer data-aos="fade-in">
+        &copy; 2025 Tvoj Fotograf | Sva prava zadržana
+    </footer>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
-
 </html>

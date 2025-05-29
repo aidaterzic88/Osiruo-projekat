@@ -1,134 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-     <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Kontakt stranica - tvojfotograf.com" />
+  <title>Kontakt | Tvoj Fotograf</title>
+  <style>
     body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e3fcef, #d4f9e2);
+      color: #2b4d36;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
 
-    background-size: cover;
-    color: white;
-}
+    #kontakt {
+      width: 100%;
+      max-width: 800px;
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
 
-#kontakt {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); 
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-#kontakt h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color:white;
-    border-bottom: 2px solid #c1a57b;
-    padding-bottom: 5px;
-}
+    #kontakt h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #3c8c62;
+      border-bottom: 2px solid #3c8c62;
+      padding-bottom: 5px;
+      text-align: center;
+    }
 
-#kontakt p {
-    margin: 10px 0;
-    line-height: 1.6;
-}
+    #kontakt p {
+      margin: 10px 0;
+      line-height: 1.6;
+      text-align: center;
+    }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 20px 0;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin: 25px 0;
+    }
 
-input, textarea {
-    padding: 12px;
-    border: 1px solid #c1a57b;
-    border-radius: 8px;
-    font-size: 1em;
-    background-color: rgba(255, 255, 255, 0.85);
-    color: white;
-    transition: border-color 0.3s ease;
-}
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #a4d4b4;
+      border-radius: 8px;
+      font-size: 1em;
+      background-color: #f9fdfb;
+      color: #333;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-input:focus, textarea:focus {
-    border-color: #a57c52;
-    outline: none;
-}
+    input:focus, textarea:focus {
+      border-color: #5dbb88;
+      box-shadow: 0 0 5px rgba(93, 187, 136, 0.4);
+      outline: none;
+    }
 
-button {
-    background-color: #8c5e3c;
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+    button {
+      background-color: #3c8c62;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-button:hover {
-    background-color: #a56f4c;
-}
+    button:hover {
+      background-color: #50a377;
+    }
 
-.social-links {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+    .social-links {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-.social-links a {
-    color:white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+    .social-links a {
+      color: #3c8c62;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
 
-.social-links a:hover {
-    color: #a56f4c;
-}
+    .social-links a:hover {
+      color: #256f4a;
+    }
 
-a {
-    color: white;
-    text-decoration: underline;
-}
+    a {
+      color: #3c8c62;
+      text-decoration: underline;
+    }
 
-a:hover {
-    color: #a56f4c;
-}
-     </style>
+    a:hover {
+      color: #256f4a;
+    }
+  </style>
 </head>
 <body>
-        
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <p>Kontaktirajte nas putem emaila ili popunite formu ispod za dodatne informacije.</p>
-        <form>
-            <input type="text" placeholder="Vaše ime" required>
-            <input type="email" placeholder="Vaš email" required>
-            <textarea placeholder="Vaša poruka" rows="5" required></textarea>
-            <button type="submit">Pošalji</button>
-        </form>
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Kontaktirajte nas putem emaila ili popunite formu ispod za dodatne informacije.</p>
     
-        <p>Email: <a href="mailto:info@tvojfotograf.com">info@tvojfotograf.com</a></p>
-    
-        <p>Pratite nas i na društvenim mrežama:</p>
-        <div class="social-links">
-            <a href="https://www.instagram.com/tvojfotograf" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/tvojfotograf" target="_blank">Facebook</a>
-            <a href="https://twitter.com/tvojfotograf" target="_blank">Twitter</a>
-        </div>
-        <div>
-            <ul>
-                <p>Za više informacija o našim uslugama, pogledajte naš <a href="cjenovnik.html" target="_blank">Cjenovnik</a></p> 
-            </ul>
-        </div>
-    </section>
-    
+    <form>
+      <input type="text" placeholder="Vaše ime" required>
+      <input type="email" placeholder="Vaš email" required>
+      <textarea placeholder="Vaša poruka" rows="5" required></textarea>
+      <button type="submit">Pošalji</button>
+    </form>
+
+    <p>Email: <a href="mailto:info@tvojfotograf.com">info@tvojfotograf.com</a></p>
+
+    <p>Pratite nas i na društvenim mrežama:</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/tvojfotograf" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/tvojfotograf" target="_blank">Facebook</a>
+      <a href="https://twitter.com/tvojfotograf" target="_blank">Twitter</a>
+    </div>
+
+    <p>Za više informacija o našim uslugama, pogledajte naš 
+      <a href="cjenovnik.html" target="_blank">Cjenovnik</a>.
+    </p>
+  </section>
 </body>
 </html>
